@@ -19,11 +19,10 @@ Deployment: Heroku
   <img src="wireframes/add-animal.drawio.png" width="350" title="wireframe">
 
   <img src="wireframes/tenant-screen.drawio.png" width="350" title="wireframe">
-  
-  <img src="wireframes/daily-log.drawio.png" width="350" title="wireframe">
 
 ### Routing
 
+  <img src="wireframes/routing.png" width="350" title="wireframe">
 
 ### ERD
 

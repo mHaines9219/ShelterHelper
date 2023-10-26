@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="ygFkDZHLJnuzZTnh9-o6" name="Page-1">
-        <mxGraphModel dx="444" dy="809" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1130" dy="809" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -16,35 +16,17 @@
                 <mxCell id="10" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
                     <mxGeometry x="230" y="260" width="390" height="390" as="geometry"/>
                 </mxCell>
-                <mxCell id="13" value="MR DOG/CAT" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="200" y="290" width="305" height="60" as="geometry"/>
+                <mxCell id="42" value="{TASK} COMPLETED BY {USERID} AT {TIME}" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="300" width="270" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="29" value="ADD TASK" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="340" y="610" width="170" height="40" as="geometry"/>
+                <mxCell id="43" value="{TASK} COMPLETED BY {USERID} AT {TIME}" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="380" width="270" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="33" value="" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="485" y="410" width="20" height="20" as="geometry"/>
+                <mxCell id="44" value="{TASK} COMPLETED BY {USERID} AT {TIME}" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="460" width="270" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="34" value="" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="485" y="450" width="20" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="35" value="" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=none;" parent="1" vertex="1">
-                    <mxGeometry x="485" y="490" width="20" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="36" value="PHOTO" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
-                    <mxGeometry x="480" y="280" width="80" height="80" as="geometry"/>
-                </mxCell>
-                <mxCell id="39" value="MEDICINE" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="340" y="410" width="120" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="40" value="AM WALK" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="340" y="450" width="120" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="41" value="CHANGE WATER" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="340" y="490" width="120" height="20" as="geometry"/>
-                </mxCell>
-                <mxCell id="42" value="SERVICED BY:" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="340" y="550" width="170" height="40" as="geometry"/>
+                <mxCell id="45" value="{TASK} COMPLETED BY {USERID} AT {TIME}" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="540" width="270" height="60" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

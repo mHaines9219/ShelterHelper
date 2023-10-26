@@ -1,8 +1,12 @@
-# Project 2 oAuth Template
+# ShelterHelper
 
-Use this repo as the base for your project 2.
+This Express/MongoDB app is conceived with the intention to aid animal rescues in the upkeep of their daily tasks and tracking their current roster of "tenants"
 
-## Getting Started
+
+
+## APIs Used
+
+Google People to give users a profile avatar
 
 * clone this repo (no forking needed) and cd into the new directory
 * run `rm -rf .git` to remove the git history

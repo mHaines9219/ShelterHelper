@@ -2,6 +2,12 @@
 
 This Express/MongoDB app is conceived with the intention to aid animal rescues in the upkeep of their daily tasks and tracking their current roster of "tenants"
 
+It will have 3 Resources: User, Animal, and Log
+
+User - Employee of shelter
+Animal - Animal tenant at shelter
+Log - a displayed log of all tasks completed that day to track accountability and efficiency
+
 
 
 ## APIs Used

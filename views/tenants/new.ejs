@@ -1,16 +1,13 @@
 <%- include('../partials/header') %>
 
     <h2>Home Page</h2>
+    <form id="new-tenant" action="/tenants/new" method="POST">
+        NAME <input type="text" name='name'><br>
+        SPECIES <input type="text" name='species'><br>
+        BREED <input type="text" name='breed'><br>
+        AGE <input type="text" name='age'><br>
+        <input type="submit" value="Add Tenant">
 
-    <% if (!user) { %>
-        <p>please login to continue</p>
-        <% } else { %>
-            <p>Welcome, <%= user.name %>
-                    <%= user.email %>
-            </p>
-            <% if (user.avatar) { %>
-                <img src="<%= user.avatar %>" alt="<%= user.name %>'s avatar" />
-                <% } %>
-                    <% } %>
+    </form>
 
-                        <%- include('../partials/footer') %>
+    <%- include('../partials/footer') %>

@@ -1,10 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
-const tenantCtrl = require("../controllers/tenant.js");
-const indexRouter = require("../controllers/index.js");
+const tenantCtrl = require("../controllers/tenants.js");
 
-router.get("/", indexRouter.index);
+router.get("/", tenantCtrl.index);
 router.get("/new", tenantCtrl.new);
+router.post("/new", tenantCtrl.create);
+
+router.get("/:id", tenantCtrl.show);
 
 module.exports = router;

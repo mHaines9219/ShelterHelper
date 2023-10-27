@@ -17,3 +17,12 @@
 
 							<a href="/tenants/new">ADD NEW TENANT</a>
 							<a href="/profiles/">PROFILES</a>
+							<tbody>
+								<% tenants.forEach(function(t) { %>
+									<tr>
+										<td>
+											<%= t.name %>
+										<td><a href="/tenants/<%= t._id %>">DETAILS</a></td>
+
+										<% }); %>
+							</tbody>

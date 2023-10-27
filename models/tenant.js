@@ -4,7 +4,15 @@ const Schema = mongoose.Schema;
 const logSchema = new Schema({
   task: String,
   timeCompleted: String,
-  id: String,
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+});
+
+const taskSchema = new Schema({
+  task: String,
 });
 const tenantSchema = new Schema(
   {
@@ -16,10 +24,12 @@ const tenantSchema = new Schema(
     age: Number,
     medicine: String,
     notes: String,
+    log: [logSchema],
+    tasks: [taskSchema],
   },
   {
     timestamps: true,
   }
 );
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("Tenant", tenantSchema);

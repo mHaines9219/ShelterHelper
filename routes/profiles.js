@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const passport = require("passport");
-const tenantCtrl = require("../controllers/tenant.js");
+const profileCtrl = require("../controllers/profile.js");
 
-router.get("/new", tenantCtrl.new);
+router.get("/", profileCtrl.index);
 
 module.exports = router;

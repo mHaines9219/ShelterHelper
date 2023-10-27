@@ -30,9 +30,19 @@ Deployment: Heroku
 
 ### MVP Goals
 
-Full CRUD functionality for all relationships contingent on oAuth Authorization.
+Display index page with list of tenants
 
-Polished UI.
+Display page for selected tenants
+
+Add functionality to update and edit tenant's information
+
+Create separate page for adding a new tenant to roster
+
+Add profile page for user to look at their own avatar and email address
+
+Create 24 hour reset protocol for a tenant's tasks
+
+Polished UI
 
 ### User Stories
 
@@ -48,6 +58,7 @@ I’d like to know which employee last serviced a tenant and see a log of what w
 
 ### Next Steps/Stretch Goals:
 
+Partial Timer: Create timer for certain medicines that require 2+ doses a day to 'uncheck' after appropriate time and require new fulfillment.
 Shift Management: Integration of a scheduling system for users to track and manage their shifts.
 Notification System: Instant alerts for critical tasks and reminders for upcoming duties.
 Mobile Optimization: Ensuring the app provides a seamless experience across all devices, especially mobiles, for on-the-go updates.

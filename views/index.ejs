@@ -1,15 +1,18 @@
 <%- include('./partials/header') %>
 
-<h2>Home Page</h2>
+	<h2>Home Page</h2>
 
-<% if (!user) { %>
-	<p>please login to continue</p>
-<% } else { %>
-	<p>Welcome, <%= user.name %> <%= user.email %></p>
-	<% if (user.avatar) { %>
-		<img src="<%= user.avatar %>" alt="<%= user.name %>'s avatar" />
-	<% } %>
-<% } %>
+	<% if (!user) { %>
+		<p>please login to continue</p>
+		<% } else { %>
+			<p>Welcome, <%= user.name %>
+					<%= user.email %>
+			</p>
+			<% if (user.avatar) { %>
+				<img src="<%= user.avatar %>" alt="<%= user.name %>'s avatar" />
+				<% } %>
+					<% } %>
 
-<%- include('./partials/footer') %>
-git 
+						<%- include('./partials/footer') %>
+
+							<a href="/tenants/new">ADD NEW TENANT</a>

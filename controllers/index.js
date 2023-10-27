@@ -1,9 +1,9 @@
 module.exports = {
-  index
-}
+  index,
+};
 
 function index(req, res) {
   res.render("index", {
-    title: "Homepage"
+    title: "ShelterHelper",
   });
 }

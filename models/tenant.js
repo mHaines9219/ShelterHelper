@@ -16,7 +16,6 @@ const taskSchema = new Schema({
 });
 const tenantSchema = new Schema(
   {
-    id: String,
     name: String,
     avatar: String,
     species: String,

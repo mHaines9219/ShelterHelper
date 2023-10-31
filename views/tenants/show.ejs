@@ -3,40 +3,53 @@
     <section id="show-page">
         <div id="nameLabel">NAME </div>
         <div id="nameField">
-            <%= tenants.name %>
+            <%= tenant.name %>
         </div>
 
         <div>SPECIES </div>
         <div>
-            <%= tenants.species %>
+            <%= tenant.species %>
         </div>
 
         <div>BREED </div>
         <div>
-            <%= tenants.breed %>
+            <%= tenant.breed %>
         </div>
         <div>AGE </div>
         <div>
-            <%= tenants.age %>
+            <%= tenant.age %>
         </div>
 
         <div>MEDICINE </div>
         <div>
-            <%= tenants.medicine %>
+            <%= tenant.medicine %>
         </div>
 
         <div>NOTES </div>
         <div>
-            <%= tenants.notes %>
+            <%= tenant.notes %>
+        </div>
+
+        <div>TASKS </div>
+        <div>
+            <% if(tenant.tasks && tenant.tasks.length> 0) { %>
+                <% tenant.tasks.forEach(function(t){ %>
+                    <ul>
+                        <%= t.task %>
+                    </ul>
+                    <% }); %>
+                        <% } %>
+
         </div>
 
 
 
 
-        <form method="POST" action="/tenants/<%= tenants._id %>?_method=DELETE">
+
+        <form method="POST" action="/tenants/<%= tenant._id %>?_method=DELETE">
             <button type="submit">DELETE TENANT</button>
         </form>
-        <a href="/tenants/<%= tenants._id %>/edit">EDIT</a>
+        <a href="/tenants/<%= tenant._id %>/edit">EDIT</a>
         </form>
     </section>
 

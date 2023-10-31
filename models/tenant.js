@@ -12,12 +12,18 @@ const Schema = mongoose.Schema;
 // });
 
 const taskSchema = new Schema({
-  task: String,
+  task: {
+    type: String,
+    default: ["AM Walk", "Breakfast", "PM Walk", "Dinner"],
+  },
+  taskComplete: {
+    type: Boolean,
+    default: false,
+  },
   timeCompleted: Date,
   user: {
     type: Schema.Types.ObjectId,
     ref: "User",
-    required: true,
   },
 });
 const tenantSchema = new Schema(

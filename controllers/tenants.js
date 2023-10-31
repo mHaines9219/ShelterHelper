@@ -39,7 +39,7 @@ async function update(req, res) {
     tenant.notes = req.body.notes;
     tenant.tasks = req.body.tasks;
     await tenant.save();
-    res.redirect("/tenants/");
+    res.redirect(`/tenants/${tenant._id}`);
   } catch (e) {
     console.log(e.message);
     res.redirect("/tenants/"); // This is a simple error handling. Ideally, you might want to show an error message to the user.
@@ -48,8 +48,16 @@ async function update(req, res) {
 
 async function create(req, res) {
   try {
+    req.body.tasks = [
+      { task: "AM Walk", taskComplete: false },
+      { task: "Breakfast", taskComplete: false },
+      { task: "PM Walk", taskComplete: false },
+      { task: "Dinner", taskComplete: false },
+    ];
+
     // Update this line because now we need the _id of the new movie
     const tenant = await Tenant.create(req.body);
+
     console.log(req.body);
     // Redirect to the new movie's show functionality
     res.redirect(`/tenants/`);
@@ -62,13 +70,13 @@ async function create(req, res) {
 
 async function show(req, res) {
   // Populate the cast array with performer docs instead of ObjectIds
-  const tenants = await Tenant.findById(req.params.id);
+  const tenant = await Tenant.findById(req.params.id);
   // Mongoose query builder approach to retrieve performers not the movie:
   // Performer.find({}).where('_id').nin(movie.cast)
   // The native MongoDB approach uses a query object to find
   // performer docs whose _ids are not in the movie.cast array like this:
 
-  res.render(`tenants/show`, { title: "Tenants", tenants });
+  res.render(`tenants/show`, { title: "Tenants", tenant });
 }
 
 function deleteTenant(req, res, next) {

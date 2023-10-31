@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+
+    <form action="/tenants/<%= tenants._id %>/?_method=PUT" method="POST">
+        NAME: <input type="text" name="name" value="<%= tenants.name %>"><br>
+        SPECIES: <input type="text" name="species" value="<%= tenants.species %>"><br>
+        BREED: <input type="text" name="breed" value="<%= tenants.breed %>"><br>
+        AGE: <input type="text" name="age" value="<%= tenants.age %>"><br>
+        MEDICINE: <input type="text" name="medicine" value="<%= tenants.medicine %>"><br>
+        NOTES: <input type="text" name="notes" value="<%= tenants.notes %>"><br>
+        TASKS: <input type="text" name="tasks" value="<%= tenants.tasks %>"><br>
+        <input type="submit" value="Update Tenant">
+    </form>
+
+    <%- include('../partials/footer') %>

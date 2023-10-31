@@ -5,17 +5,38 @@
         <div id="nameField">
             <%= tenants.name %>
         </div>
-        <div>AGE </div>
+
+        <div>SPECIES </div>
         <div>
-            <%= tenants.age %>
+            <%= tenants.species %>
         </div>
+
         <div>BREED </div>
         <div>
             <%= tenants.breed %>
         </div>
+        <div>AGE </div>
+        <div>
+            <%= tenants.age %>
+        </div>
+
+        <div>MEDICINE </div>
+        <div>
+            <%= tenants.medicine %>
+        </div>
+
+        <div>NOTES </div>
+        <div>
+            <%= tenants.notes %>
+        </div>
+
+
+
 
         <form method="POST" action="/tenants/<%= tenants._id %>?_method=DELETE">
             <button type="submit">DELETE TENANT</button>
+        </form>
+        <a href="/tenants/<%= tenants._id %>/edit">EDIT</a>
         </form>
     </section>
 

@@ -4,6 +4,7 @@ module.exports = {
   new: newTenant,
   create,
   show,
+  delete: deleteTenant,
 };
 async function index(req, res) {
   const tenants = await Tenant.find({});
@@ -37,5 +38,18 @@ async function show(req, res) {
   // The native MongoDB approach uses a query object to find
   // performer docs whose _ids are not in the movie.cast array like this:
 
-  res.render(`tenants/show`, { title: "All Movies", tenants });
+  res.render(`tenants/show`, { title: "Tenants", tenants });
+}
+
+function deleteTenant(req, res, next) {
+  // Find the tenant by its _id and delete it
+  Tenant.findByIdAndDelete(req.params.id)
+    .then(function () {
+      // After deletion, redirect to the tenants page
+      res.redirect("/tenants/");
+    })
+    .catch(function (err) {
+      // If an error occurs, pass it to the next middleware (likely an error handler)
+      return next(err);
+    });
 }

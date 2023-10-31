@@ -1,28 +1,58 @@
 <%- include('../partials/header') %>
 
     <section id="show-page">
-        <div>Title: </div>
-        <div>
+        <div id="nameLabel">NAME </div>
+        <div id="nameField">
             <%= tenants.name %>
         </div>
-        <div>Release Year: </div>
+        <div>AGE </div>
         <div>
             <%= tenants.age %>
         </div>
-        <div>Rating: </div>
+        <div>BREED </div>
         <div>
             <%= tenants.breed %>
         </div>
-        <div>Now Showing: </div>
-        <div>
 
-        </div>
-        <!-- start cast list -->
-        <div>Cast:</div>
-        <ul>
-
-        </ul>
-        <!-- end cast list -->
+        <form method="POST" action="/tenants/<%= tenants._id %>?_method=DELETE">
+            <button type="submit">DELETE TENANT</button>
+        </form>
     </section>
 
     <%- include('../partials/footer') %>
+        <!-- <script>
+            const nameLabel = document.getElementById('nameLabel');
+            const nameField = document.getElementById('nameField');
+
+            nameLabel.addEventListener('click', () => {
+                // Save the current name to revert back if needed
+                const currentName = nameField.textContent;
+
+                // Create a textarea and set its value to the current name
+                const textarea = document.createElement('textarea');
+                textarea.value = currentName;
+
+                // Replace the current name with the textarea
+                nameField.innerHTML = '';
+                nameField.appendChild(textarea);
+
+                // Focus the textarea for immediate editing
+                textarea.focus();
+
+                // Optional: Create a Save button
+                const saveButton = document.createElement('button');
+                saveButton.textContent = 'Save';
+
+                saveButton.addEventListener('click', () => {
+                    // Get the updated name
+                    const updatedName = textarea.value;
+
+                    // Replace the textarea with the updated name
+                    nameField.innerHTML = updatedName;
+
+                    // TODO: Use AJAX to send the updated name to the server
+                });
+
+                nameField.appendChild(saveButton);
+            });
+        </script> -->

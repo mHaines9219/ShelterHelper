@@ -20,9 +20,9 @@
 							<tbody>
 								<% tenants.forEach(function(t) { %>
 									<tr>
-										<td>
+										<ul>
 											<%= t.name %>
-										<td><a href="/tenants/<%= t._id %>">DETAILS</a></td>
+										</ul><a href="/tenants/<%= t._id %>">DETAILS</a></td>
 
 										<% }); %>
 							</tbody>

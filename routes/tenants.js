@@ -8,5 +8,7 @@ router.get("/new", tenantCtrl.new);
 router.post("/new", tenantCtrl.create);
 
 router.get("/:id", tenantCtrl.show);
+// router.put("/:id", tenantCtrl.update);
+router.delete("/:id/", tenantCtrl.delete);
 
 module.exports = router;

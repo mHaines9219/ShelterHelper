@@ -7,6 +7,7 @@ module.exports = {
   edit,
   update,
   delete: deleteTenant,
+  updateTask,
 };
 async function index(req, res) {
   const tenants = await Tenant.find({});
@@ -93,4 +94,26 @@ function deleteTenant(req, res, next) {
       // If an error occurs, pass it to the next middleware (likely an error handler)
       return next(err);
     });
+}
+
+async function updateTask(req, res) {
+  try {
+    const tenant = await Tenant.findById(req.params.id);
+    console.log("hello");
+    console.log(req.body);
+    const taskIndex = req.params.taskIndex;
+
+    const taskCompleteStatus = req.body.taskComplete;
+
+    if (tenant.tasks[taskIndex]) {
+      tenant.tasks[taskIndex].taskComplete = taskCompleteStatus;
+      await tenant.save();
+      res.json({ success: true });
+    } else {
+      res.json({ success: false, message: "task save failed" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: "Internal Server Error" });
+  }
 }

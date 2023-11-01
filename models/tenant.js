@@ -12,10 +12,12 @@ const Schema = mongoose.Schema;
 // });
 
 const taskSchema = new Schema({
-  task: {
-    type: String,
-    default: ["AM Walk", "Breakfast", "PM Walk", "Dinner"],
-  },
+  task: [
+    {
+      type: String,
+      default: ["AM Walk", "Breakfast", "PM Walk", "Dinner"],
+    },
+  ],
   taskComplete: {
     type: Boolean,
     default: false,

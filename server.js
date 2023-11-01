@@ -67,4 +67,8 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
+//reset at midnight
+const { initializeCronJobs } = require("./cronJobs");
+initializeCronJobs();
+
 module.exports = app;

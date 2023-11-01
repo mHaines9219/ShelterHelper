@@ -33,9 +33,12 @@
         <div>TASKS </div>
         <div>
             <% if(tenant.tasks && tenant.tasks.length> 0) { %>
-                <% tenant.tasks.forEach(function(t){ %>
+                <% tenant.tasks.forEach(function(t,index){ %>
                     <ul>
-                        <%= t.task %><input type="checkbox" id="task-checkbox">
+
+                        <%= t.task %><input type="checkbox" class="task-checkbox" data-task-id="<%= index %>" <%
+                                if(t.taskComplete) { %>checked="checked"<% } %>>
+
 
                     </ul>
                     <% }); %>
@@ -54,39 +57,36 @@
         </form>
     </section>
 
-    <%- include('../partials/footer') %>
-        <script>
-            const taskCheckbox = document.getElementById('task-checkbox');
-
-            taskCheckbox.addEventListener('onchange', () => {
-                // Save the current name to revert back if needed
-                const currentName = nameField.checkboxContent;
-
-                // Create a textarea and set its value to the current name
-                const textarea = document.createElement('textarea');
-                textarea.value = currentName;
-
-                // Replace the current name with the textarea
-                nameField.innerHTML = '';
-                nameField.appendChild(textarea);
-
-                // Focus the textarea for immediate editing
-                textarea.focus();
-
-                // Optional: Create a Save button
-                const saveButton = document.createElement('button');
-                saveButton.textContent = 'Save';
-
-                saveButton.addEventListener('click', () => {
-                    // Get the updated name
-                    const updatedName = textarea.value;
-
-                    // Replace the textarea with the updated name
-                    nameField.innerHTML = updatedName;
-
-                    // TODO: Use AJAX to send the updated name to the server
+    <script>
+        function updateTask(tenantId, taskIndex, isChecked) {
+            // Use fetch API or another AJAX method to send an update to the server
+            fetch(`/tenants/${tenantId}/update-task/${taskIndex}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ taskComplete: isChecked }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        console.log('Task updated successfully.');
+                    } else {
+                        console.error('Error updating task.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
                 });
+        }
+        const checkboxes = document.querySelectorAll('.task-checkbox');
 
-                nameField.appendChild(saveButton);
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function (e) {
+                const taskId = e.target.getAttribute('data-task-id')
+                const isChecked = e.target.checked
+                updateTask('<%= tenant._id %>', taskId, isChecked);
             });
-        </script>
+        });
+    </script>
+    <%- include('../partials/footer') %>

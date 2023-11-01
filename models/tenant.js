@@ -11,23 +11,30 @@ const Schema = mongoose.Schema;
 //   },
 // });
 
-const taskSchema = new Schema({
-  task: [
-    {
-      type: String,
-      default: ["AM Walk", "Breakfast", "PM Walk", "Dinner"],
+const taskSchema = new Schema(
+  {
+    task: [
+      {
+        type: String,
+        default: ["AM Walk", "Breakfast", "PM Walk", "Dinner"],
+      },
+    ],
+    taskComplete: {
+      type: Boolean,
+      default: false,
     },
-  ],
-  taskComplete: {
-    type: Boolean,
-    default: false,
+    timeCompleted: Date,
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+    userName: String,
+    userAvatar: String,
   },
-  timeCompleted: Date,
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
-  },
-});
+  {
+    timestamps: true,
+  }
+);
 const tenantSchema = new Schema(
   {
     name: String,

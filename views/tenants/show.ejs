@@ -56,6 +56,25 @@
         <a href="/tenants/<%= tenant._id %>/edit">EDIT</a>
         </form>
     </section>
+    <section id="log">
+        <ol>
+            <% tenant.tasks.forEach(function(task) { %>
+                <% if(task.taskComplete) { %>
+                    <li>
+                        <%= task.userName %> completed the task: <%= task.task %> at <%= new
+                                    Date(task.timeCompleted).toLocaleDateString(undefined, { month: 'short' ,
+                                    day: 'numeric' , year: 'numeric' }) %>
+                                    at <%= new Date(task.timeCompleted).toLocaleTimeString(undefined, { hour: '2-digit'
+                                        , minute: '2-digit' }) %>
+
+
+                    </li>
+                    <% } %>
+                        <% }); %>
+        </ol>
+    </section>
+
+
 
     <script>
         function updateTask(tenantId, taskIndex, isChecked) {

@@ -99,16 +99,25 @@ function deleteTenant(req, res, next) {
 async function updateTask(req, res) {
   try {
     const tenant = await Tenant.findById(req.params.id);
+
     console.log("hello");
-    console.log(req.body);
     const taskIndex = req.params.taskIndex;
 
     const taskCompleteStatus = req.body.taskComplete;
 
     if (tenant.tasks[taskIndex]) {
       tenant.tasks[taskIndex].taskComplete = taskCompleteStatus;
+      // req.body.user = req.user._id;
+      // req.body.userName = req.user.name;
+      // req.body.userAvatar = req.user.avatar;
+
+      tenant.tasks[taskIndex].user = req.user._id;
+      tenant.tasks[taskIndex].userName = req.user.name;
+      tenant.tasks[taskIndex].userAvatar = req.user.avatar;
+      tenant.tasks[taskIndex].timeCompleted = Date.now();
+      console.log(req.user);
       await tenant.save();
-      res.json({ success: true });
+      res.json({ success: true, task: tenant.tasks[taskIndex] });
     } else {
       res.json({ success: false, message: "task save failed" });
     }

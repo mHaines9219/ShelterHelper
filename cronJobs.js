@@ -30,7 +30,7 @@ async function resetTasks() {
 }
 
 function initializeCronJobs() {
-  cron.schedule("0 18 * * *", function () {
+  cron.schedule("0 0 * * *", function () {
     resetTasks();
   });
   console.log("Cron job initialized");

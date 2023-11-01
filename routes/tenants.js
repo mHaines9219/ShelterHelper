@@ -5,7 +5,7 @@ const tenantCtrl = require("../controllers/tenants.js");
 const tenant = require("../models/tenant.js");
 const ensureLoggedIn = require("../config/ensureLoggedIn");
 
-router.get("/", ensureLoggedIn, tenantCtrl.index);
+router.get("/", tenantCtrl.index);
 router.get("/new", ensureLoggedIn, tenantCtrl.new);
 router.post("/new", ensureLoggedIn, tenantCtrl.create);
 router.put(

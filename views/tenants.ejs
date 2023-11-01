@@ -1,6 +1,39 @@
 <%- include('./partials/header') %>
 
+    <h2>Home Page</h2>
 
 
 
+    <div id="main-container">
+
+        <% if (!user) { %>
+            <p>please login to continue</p>
+            <div id="landing-page-container"></div>
+            <% } else { %>
+                <p>Welcome, <%= user.name %>
+                        <%= user.email %>
+                </p>
+                <% if (user.avatar) { %>
+                    <img src="<%= user.avatar %>" alt="<%= user.name %>'s avatar" />
+                    <% } %>
+                        <% } %>
+
+
+                            <a href="/tenants/new">ADD NEW TENANT</a>
+                            <a href="/profiles/">PROFILES</a>
+
+                            <% tenants.forEach(function(t) { %>
+
+
+                                <%= t.name %>
+                                    <a href="/tenants/<%= t._id %>">DETAILS</a></td>
+
+                                    <% }); %>
+
+
+    </div>
     <%- include('./partials/footer') %>
+
+        <script>
+
+        </script>

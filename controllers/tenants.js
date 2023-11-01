@@ -11,7 +11,7 @@ module.exports = {
 };
 async function index(req, res) {
   const tenants = await Tenant.find({});
-  res.render("index", { title: "All Movies", tenants });
+  res.render("tenants", { title: "ShelterHelper", tenants });
 }
 
 function newTenant(req, res) {

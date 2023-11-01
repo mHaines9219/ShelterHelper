@@ -39,6 +39,7 @@ async function update(req, res) {
     tenant.notes = req.body.notes;
     tenant.tasks = req.body.tasks;
     await tenant.save();
+
     res.redirect(`/tenants/${tenant._id}`);
   } catch (e) {
     console.log(e.message);
@@ -54,11 +55,13 @@ async function create(req, res) {
       { task: "PM Walk", taskComplete: false },
       { task: "Dinner", taskComplete: false },
     ];
+    if (!req.body.medicine) req.body.medicine = undefined;
+    if (!req.body.notes) req.body.notes = undefined;
 
     // Update this line because now we need the _id of the new movie
     const tenant = await Tenant.create(req.body);
 
-    console.log(req.body);
+    console.log(tenant);
     // Redirect to the new movie's show functionality
     res.redirect(`/tenants/`);
   } catch (err) {

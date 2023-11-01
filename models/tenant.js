@@ -33,8 +33,8 @@ const tenantSchema = new Schema(
     species: String,
     breed: String,
     age: Number,
-    medicine: String,
-    notes: String,
+    medicine: { type: String, default: "None" },
+    notes: { type: String, default: "None" },
     tasks: [taskSchema],
   },
   {

@@ -35,7 +35,8 @@
             <% if(tenant.tasks && tenant.tasks.length> 0) { %>
                 <% tenant.tasks.forEach(function(t){ %>
                     <ul>
-                        <%= t.task %>
+                        <%= t.task %><input type="checkbox" id="task-checkbox">
+
                     </ul>
                     <% }); %>
                         <% } %>
@@ -54,13 +55,12 @@
     </section>
 
     <%- include('../partials/footer') %>
-        <!-- <script>
-            const nameLabel = document.getElementById('nameLabel');
-            const nameField = document.getElementById('nameField');
+        <script>
+            const taskCheckbox = document.getElementById('task-checkbox');
 
-            nameLabel.addEventListener('click', () => {
+            taskCheckbox.addEventListener('onchange', () => {
                 // Save the current name to revert back if needed
-                const currentName = nameField.textContent;
+                const currentName = nameField.checkboxContent;
 
                 // Create a textarea and set its value to the current name
                 const textarea = document.createElement('textarea');
@@ -89,4 +89,4 @@
 
                 nameField.appendChild(saveButton);
             });
-        </script> -->
+        </script>

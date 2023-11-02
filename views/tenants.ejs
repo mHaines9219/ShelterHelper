@@ -1,31 +1,36 @@
 <%- include('./partials/header') %>
 
-    <h2>Home Page</h2>
-
 
 
     <div id="main-container">
 
 
         <div id="landing-page-container"></div>
-        <h2>Current Tenants</h3>
+        <h2>Current Tenants</h2>
 
 
 
-            <% tenants.forEach(function(t) { %>
+        <% tenants.forEach(function(t) { %>
 
 
+            <div id="tenant-container">
 
                 <a href="/tenants/<%= t._id %>">
-                    <%= t.name %>
-                </a></td>
+                    <div id="tenant-name">
+                        <%= t.name %>
 
-                <% }); %>
-
-
+                            <img src="../<%= t.avatar %>" alt="tenant-photo"
+                                style="width:150px; height: 150px; border-radius: 40%">
+                </a>
+            </div>
     </div>
-    <%- include('./partials/footer') %>
 
-        <script>
+    <% }); %>
 
-        </script>
+
+        </div>
+        <%- include('./partials/footer') %>
+
+            <script>
+
+            </script>

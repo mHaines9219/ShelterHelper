@@ -16,7 +16,7 @@ const taskSchema = new Schema(
     task: [
       {
         type: String,
-        default: ["AM Walk", "Breakfast", "PM Walk", "Dinner"],
+        default: ["AM Exercise", "Breakfast", "PM Exercise", "Dinner"],
       },
     ],
     taskComplete: {

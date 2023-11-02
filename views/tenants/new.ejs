@@ -1,16 +1,22 @@
 <%- include('../partials/header') %>
 
-    <h2>Home Page</h2>
-    <form id="new-tenant" action="/tenants/new" method="POST" enctype="multipart/form-data">
-        NAME <input type="text" name='name'><br>
-        SPECIES <input type="text" name='species'><br>
-        BREED <input type="text" name='breed'><br>
-        AGE <input type="text" name='age'><br>
-        MEDICINE <input type="text" name='medicine'><br>
-        NOTES <input type="text" name='notes'><br>
-        AVATAR <input type="file" name='avatar'><br>
-
-        <input type="submit" value="Add Tenant">
-    </form>
+    <div id="form-container">
+        <form id="new-tenant" action="/tenants/new" method="POST" enctype="multipart/form-data">
+            <p class="form-items">NAME</p>
+            <input type="text" name='name'>
+            <p class="form-items">SPECIES</p> <input type="text" name='species'>
+            <p class="form-items">BREED</p> <input type="text" name='breed'>
+            <p class="form-items">AGE</p> <input type="text" name='age'>
+            <p class="form-items">MEDICINE</p> <input type="text" name='medicine'>
+            <p class="form-items">NOTES</p> <input type="text" name='notes'>
+            <div id="photo-container">
+                <label for="file-upload" class="custom-file-upload">
+                    <p class="upload-photo-text">Upload Photo</p>
+                </label>
+                <input type="file" id="file-upload" name='avatar'>
+            </div>
+            <input type="submit" id="submit-button" value="Add Tenant">
+        </form>
+    </div>
 
     <%- include('../partials/footer') %>

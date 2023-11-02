@@ -1,4 +1,6 @@
 const Tenant = require("../models/tenant");
+const fs = require("fs");
+const path = require("path");
 module.exports = {
   index,
   new: newTenant,
@@ -51,9 +53,9 @@ async function update(req, res) {
 async function create(req, res) {
   try {
     req.body.tasks = [
-      { task: "AM Walk", taskComplete: false },
+      { task: "AM Exercise", taskComplete: false },
       { task: "Breakfast", taskComplete: false },
-      { task: "PM Walk", taskComplete: false },
+      { task: "PM Exercise", taskComplete: false },
       { task: "Dinner", taskComplete: false },
     ];
 
@@ -89,19 +91,26 @@ async function show(req, res) {
   res.render(`tenants/show`, { title: "Tenants", tenant });
 }
 
-function deleteTenant(req, res, next) {
-  // Find the tenant by its _id and delete it
-  Tenant.findByIdAndDelete(req.params.id)
-    .then(function () {
-      // After deletion, redirect to the tenants page
-      res.redirect("/tenants/");
-    })
-    .catch(function (err) {
-      // If an error occurs, pass it to the next middleware (likely an error handler)
-      return next(err);
-    });
-}
+async function deleteTenant(req, res, next) {
+  try {
+    // Fetch the tenant from the database first
+    const tenant = await Tenant.findById(req.params.id);
 
+    // Delete the associated photo from the filesystem
+    if (tenant.avatar) {
+      fs.unlinkSync(path.join(__dirname, "../", tenant.avatar));
+    }
+
+    // Then delete the tenant from the database
+    await Tenant.findByIdAndRemove(req.params.id);
+
+    // Redirect or respond as per your flow
+    res.redirect("/tenants");
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+}
 async function updateTask(req, res) {
   try {
     const tenant = await Tenant.findById(req.params.id);
@@ -113,9 +122,9 @@ async function updateTask(req, res) {
 
     if (tenant.tasks[taskIndex]) {
       tenant.tasks[taskIndex].taskComplete = taskCompleteStatus;
-      // req.body.user = req.user._id;
-      // req.body.userName = req.user.name;
-      // req.body.userAvatar = req.user.avatar;
+      req.body.user = req.user._id;
+      req.body.userName = req.user.name;
+      req.body.userAvatar = req.user.avatar;
 
       tenant.tasks[taskIndex].user = req.user._id;
       tenant.tasks[taskIndex].userName = req.user.name;

@@ -1,15 +1,248 @@
+@import url("https://fonts.googleapis.com/css2?family=Nerko+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Wellfleet&display=swap");
 * {
-  border: 2px solid red;
+  /* border: 2px solid red; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  background-color: darkseagreen;
+}
+h1,
+nav,
+h2,
+h3,
+a {
+  font-family: "Nerko One";
+}
+
+a {
+  padding-left: 10px;
+  padding-right: 10px;
+  text-decoration: none;
+}
+nav > a,
+nav > a:visited,
+nav > a:active {
+  color: darkseagreen;
+}
+nav > a:hover {
+  background-color: darkseagreen;
+  color: white;
 }
 
 body {
   display: flex;
   flex-direction: column;
 }
+
+nav {
+  background-color: white;
+  font-size: 1.5rem;
+  padding: 15px;
+  margin-bottom: 20px;
+  padding-right: 20px;
+}
+
+nav > :nth-child(4),
+nav > :nth-child(3) {
+  /* Replace 'n' with the desired number, e.g., 3 for the third child */
+  float: right;
+  padding-left: 10px;
+}
+
 #main-container {
   display: flex;
   flex-direction: column;
-  border: 2px solid blue;
   justify-content: center;
   align-items: center;
+  background-color: white;
+  width: 500px;
+  border-radius: 20%;
+  padding-bottom: 20px;
+}
+
+#tenant-container {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+}
+
+img {
+  vertical-align: middle;
+  margin-left: 20px;
+  border: 8px solid darkseagreen;
+}
+
+#form-container {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+}
+
+#new-tenant {
+  background-color: white;
+  color: white;
+  border-radius: 20%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: white;
+}
+h2 {
+  font-size: 2rem;
+  margin: 20px;
+}
+.form-items {
+  font-family: "Wellfleet", monospace;
+  margin: 0px;
+  color: darkseagreen;
+  font-size: 2rem;
+}
+
+#photo-container {
+  display: block;
+  width: fit-content;
+}
+
+#tenant-name > a {
+  font-size: 2rem;
+  color: black;
+  text-decoration: none;
+}
+main {
+  background-color: darkseagreen;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+#submit-button {
+  color: white;
+  background-color: darkseagreen;
+  font-weight: 800;
+  font-size: 1.5rem;
+  width: 200px;
+  height: 50px;
+  font-family: "Wellfleet", monospace;
+}
+
+#submit-button:hover {
+  transition: 0.2s;
+  color: darkseagreen;
+  background-color: white;
+  border-radius: 20%;
+  box-shadow: 1px 1px 1px green;
+}
+#delete-button {
+  color: white;
+  background-color: darkseagreen;
+  font-weight: 800;
+  font-size: 1rem;
+  width: 200px;
+  height: 50px;
+  font-family: "Wellfleet", monospace;
+}
+
+#delete-button:hover {
+  transition: 0.2s;
+  color: darkseagreen;
+  background-color: red;
+  border-radius: 20%;
+  box-shadow: 1px 1px 1px red;
+}
+#edit-button {
+  color: white;
+  background-color: darkseagreen;
+  font-weight: 800;
+  font-size: 1rem;
+  width: 200px;
+  height: 50px;
+  font-family: "Wellfleet", monospace;
+}
+
+#edit-button:hover {
+  transition: 0.2s;
+  color: darkseagreen;
+  background-color: blue;
+  border-radius: 20%;
+  box-shadow: 1px 1px 1px black;
+}
+input[type="file"] {
+  display: none;
+}
+input[type="text"] {
+  font-size: 1.5rem;
+}
+.custom-file-upload {
+  border: 1px solid black;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  padding: 20px;
+}
+.custom-file-upload:hover {
+  border: 1px solid black;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: white;
+  background-color: darkseagreen;
+  font-family: "Wellfleet", monospace;
+  padding: 20px;
+  border-radius: 20%;
+  transition: 0.2s;
+}
+p > #upload-photo-text {
+  font-family: "Wellfleet", monospace;
+  color: blue;
+}
+p > #upload-photo-text:hover {
+  border: 1px solid black;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: white;
+  background-color: darkseagreen;
+
+  font-family: "Wellfleet", monospace;
+}
+
+label {
+  color: black;
+  text-align: center;
+  margin: 10px;
+  font-family: "Wellfleet", monospace;
+}
+#show-page {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 500px;
+  border-radius: 20%;
+  padding-bottom: 20px;
+}
+
+#edit-button {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  padding: 15px;
 }

@@ -1,16 +1,16 @@
 <%- include('../partials/header') %>
 
     <h2>Home Page</h2>
-    <form id="new-tenant" action="/tenants/new" method="POST">
+    <form id="new-tenant" action="/tenants/new" method="POST" enctype="multipart/form-data">
         NAME <input type="text" name='name'><br>
         SPECIES <input type="text" name='species'><br>
         BREED <input type="text" name='breed'><br>
         AGE <input type="text" name='age'><br>
         MEDICINE <input type="text" name='medicine'><br>
         NOTES <input type="text" name='notes'><br>
+        AVATAR <input type="file" name='avatar'><br>
 
         <input type="submit" value="Add Tenant">
-
     </form>
 
     <%- include('../partials/footer') %>

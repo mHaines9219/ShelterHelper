@@ -4,10 +4,12 @@ const passport = require("passport");
 const tenantCtrl = require("../controllers/tenants.js");
 const tenant = require("../models/tenant.js");
 const ensureLoggedIn = require("../config/ensureLoggedIn");
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
 
-router.get("/", tenantCtrl.index);
+router.get("/", ensureLoggedIn, tenantCtrl.index);
 router.get("/new", ensureLoggedIn, tenantCtrl.new);
-router.post("/new", ensureLoggedIn, tenantCtrl.create);
+router.post("/new", ensureLoggedIn, upload.single("avatar"), tenantCtrl.create);
 router.put(
   "/:id/update-task/:taskIndex",
   ensureLoggedIn,

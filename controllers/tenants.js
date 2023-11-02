@@ -56,8 +56,13 @@ async function create(req, res) {
       { task: "PM Walk", taskComplete: false },
       { task: "Dinner", taskComplete: false },
     ];
+
     if (!req.body.medicine) req.body.medicine = undefined;
     if (!req.body.notes) req.body.notes = undefined;
+    if (req.file) {
+      // Assuming you're storing the filepath in the database
+      req.body.avatar = req.file.path;
+    }
 
     // Update this line because now we need the _id of the new movie
     const tenant = await Tenant.create(req.body);

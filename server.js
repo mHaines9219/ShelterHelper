@@ -6,6 +6,8 @@ const logger = require("morgan");
 const session = require("express-session");
 const passport = require("passport");
 const methodOverride = require("method-override");
+const multer = require("multer");
+const upload = multer({ dest: "uploads/" });
 
 require("dotenv").config();
 require("./config/database");

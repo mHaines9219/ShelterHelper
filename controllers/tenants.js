@@ -40,7 +40,7 @@ async function update(req, res) {
     tenant.species = req.body.species;
     tenant.medicine = req.body.medicine;
     tenant.notes = req.body.notes;
-    tenant.tasks = req.body.tasks;
+
     await tenant.save();
 
     res.redirect(`/tenants/${tenant._id}`);

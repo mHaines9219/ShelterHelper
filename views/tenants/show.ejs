@@ -1,92 +1,104 @@
 <%- include('../partials/header') %>
+    <div id="main-show-page">
 
-    <section id="show-page">
-        <div id="nameLabel" class="form-items">NAME </div>
-        <div id="nameField">
-            <%= tenant.name %>
-        </div>
-        <div id="tenant-photo-container"></div>
-        <div id="tenant-photo">
-            <img src="../<%= tenant.avatar %>" alt="<%= tenant.name %>"
-                style="width: 200px; height: 200px; border-radius: 40%">
+        <section id="show-page">
+            <div id="nameLabel" class="form-items">NAME </div>
+            <div id="nameField">
+                <%= tenant.name %>
+            </div>
+            <br>
+            <div id="tenant-photo-container"></div>
+            <div id="tenant-photo">
+                <img src="../<%= tenant.avatar %>" alt="<%= tenant.name %>"
+                    style="width: 200px; height: 200px; border-radius: 40%">
 
-        </div>
-        <div class="form-items">SPECIES </div>
-        <div>
-            <%= tenant.species %>
-        </div>
+            </div>
 
-        <div class="form-items">BREED </div>
-        <div>
-            <%= tenant.breed %>
-        </div>
-        <div class="form-items">AGE </div>
-        <div>
-            <%= tenant.age %>
-        </div>
+            <div class="form-items">SPECIES </div>
+            <div>
+                <%= tenant.species %>
+            </div>
 
-        <div class="form-items">MEDICINE </div>
-        <div>
-            <%= tenant.medicine %>
-        </div>
+            <div class="form-items">BREED </div>
+            <div>
+                <%= tenant.breed %>
+            </div>
+            <div class="form-items">AGE </div>
+            <div>
+                <%= tenant.age %>
+            </div>
 
-        <div class="form-items">NOTES </div>
-        <div>
-            <%= tenant.notes %>
-        </div>
+            <div class="form-items">MEDICINE </div>
+            <div>
+                <%= tenant.medicine %>
+            </div>
 
-        <div class="form-items" style="color:black">TASKS </div>
-        <div>
-            <% if(tenant.tasks && tenant.tasks.length> 0) { %>
-                <% tenant.tasks.forEach(function(t,index){ %>
-                    <ul>
-
-                        <div class="form-items">
-                            <%= t.task %><input type="checkbox" class="task-checkbox" data-task-id="<%= index %>" <%
-                                    if(t.taskComplete) { %>checked="checked"<% } %>>
-                        </div>
+            <div class="form-items">NOTES </div>
+            <div>
+                <%= tenant.notes %>
+            </div>
 
 
-                    </ul>
-                    <% }); %>
-                        <% } %>
-
-        </div>
-
-        <br>
+            <br>
 
 
 
-        <div id="edit-wrapper">
-            <a href="/tenants/<%= tenant._id %>/edit" id="edit-button">
-                <p>EDIT</p>
-            </a>
-        </div>
-        <br>
-        <form method="POST" action="/tenants/<%= tenant._id %>?_method=DELETE">
-            <button type="submit" id="delete-button">DELETE TENANT</button>
-        </form>
-        </form>
-    </section>
-    <section id="log">
-        <ol>
-            <% tenant.tasks.forEach(function(task) { %>
-                <% if(task.taskComplete) { %>
-                    <li>
-                        <%= task.userName %> completed the task: <%= task.task %> at <%= new
-                                    Date(task.timeCompleted).toLocaleDateString(undefined, { month: 'short' ,
-                                    day: 'numeric' , year: 'numeric' }) %>
-                                    at <%= new Date(task.timeCompleted).toLocaleTimeString(undefined, { hour: '2-digit'
-                                        , minute: '2-digit' }) %>
+            <div id="edit-wrapper">
+                <a href="/tenants/<%= tenant._id %>/edit" id="edit-button">
+                    <p>EDIT</p>
+                </a>
+            </div>
+            <br>
+            <form method="POST" action="/tenants/<%= tenant._id %>?_method=DELETE">
+                <button type="submit" id="delete-button">DELETE TENANT</button>
+            </form>
+            </form>
+        </section>
+        <section id="task-log-box">
+            <div class="form-items" style="color:black">TASKS </div>
+            <br>
+            <div>
+                <% if(tenant.tasks && tenant.tasks.length> 0) { %>
+                    <% tenant.tasks.forEach(function(t,index){ %>
+                        <ul>
+
+                            <div class="task-items">
+                                <%= t.task %><input type="checkbox" class="task-checkbox" data-task-id="<%= index %>" <%
+                                        if(t.taskComplete) { %>checked="checked"<% } %>>
+                            </div>
 
 
-                    </li>
-                    <% } %>
+                        </ul>
                         <% }); %>
-        </ol>
-    </section>
+                            <% } %>
+
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <section id="log">
+                <div class="form-items" style="color:black">LOG</div>
+                <br>
+                <ul>
+                    <% tenant.tasks.forEach(function(task) { %>
+                        <% if(task.taskComplete) { %>
+                            <li>
+                                <%= task.userName %> completed the task: <%= task.task %> at <%= new
+                                            Date(task.timeCompleted).toLocaleDateString(undefined, { month: 'short' ,
+                                            day: 'numeric' , year: 'numeric' }) %>
+                                            at <%= new Date(task.timeCompleted).toLocaleTimeString(undefined, {
+                                                hour: '2-digit' , minute: '2-digit' }) %>
+                            </li>
+                            <% } %>
+                                <% }); %>
+                </ul>
+            </section>
+        </section>
 
 
+    </div>
 
     <script>
         function updateTask(tenantId, taskIndex, isChecked) {

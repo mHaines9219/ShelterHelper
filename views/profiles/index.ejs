@@ -1,16 +1,21 @@
 <%- include('../partials/header') %>
 
-    <h2>Home Page</h2>
-
-    <% if (!user) { %>
-        <p>please login to continue</p>
-        <% } else { %>
-            <p>Welcome, <%= user.name %>
-                    <%= user.email %>
-            </p>
-            <% if (user.avatar) { %>
-                <img src="<%= user.avatar %>" alt="<%= user.name %>'s avatar" />
-                <% } %>
+    <div id="main-container">
+        <h2>Profile Page</h2>
+        <% if (!user) { %>
+            <p>please login to continue</p>
+            <% } else { %>
+                <% if (user.avatar) { %>
+                    <img id="profile-pic" src="<%= user.avatar %>" alt="<%= user.name %>'s avatar" />
                     <% } %>
+                        <% } %>
+                            <br>
+                            <p>Welcome, <%= user.name %>
 
-                        <%- include('../partials/footer') %>
+                            </p><br>
+                            <p>You are logged in at <%= user.email %><br><br>
+                                    Contact Admin to change email
+                            </p>
+                            <br>
+                            <%- include('../partials/footer') %>
+    </div>

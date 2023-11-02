@@ -1,14 +1,20 @@
 <%- include('../partials/header') %>
 
-    <form action="/tenants/<%= tenants._id %>/?_method=PUT" method="POST">
-        <p class="form-items">NAME:</p> <input type="text" name="name" value="<%= tenants.name %>"><br>
-        <p class="form-items">SPECIES:</p> <input type="text" name="species" value="<%= tenants.species %>"><br>
-        <p class="form-items">BREED:</p> <input type="text" name="breed" value="<%= tenants.breed %>"><br>
-        <p class="form-items">AGE:</p> <input type="text" name="age" value="<%= tenants.age %>"><br>
-        <p class="form-items">MEDICINE:</p> <input type="text" name="medicine" value="<%= tenants.medicine %>"><br>
-        <p class="form-items">NOTES:</p> <input type="text" name="notes" value="<%= tenants.notes %>"><br>
-
-        <input type="submit" value="Update Tenant">
-    </form>
+    <div id="main-container">
+        <form action="/tenants/<%= tenants._id %>/?_method=PUT" method="POST">
+            <br>
+            <p class="form-items">NAME:</p> <input type="text" name="name" value="<%= tenants.name %>"><br>
+            <p class="form-items">SPECIES:</p> <input type="text" name="species" value="<%= tenants.species %>"><br>
+            <p class="form-items">BREED:</p> <input type="text" name="breed" value="<%= tenants.breed %>"><br>
+            <p class="form-items">AGE:</p> <input type="text" name="age" value="<%= tenants.age %>"><br>
+            <p class="form-items">MEDICINE:</p> <input type="text" name="medicine" value="<%= tenants.medicine %>"><br>
+            <p class="form-items">NOTES:</p> <textarea type="text" rows="4" cols="32" name="notes">
+<%= tenants.notes %>
+</textarea>
+            <br>
+            <br>
+            <input type="submit" id="submit-button" value="Update Tenant">
+        </form>
+    </div>
 
     <%- include('../partials/footer') %>

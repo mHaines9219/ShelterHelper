@@ -61,6 +61,7 @@ async function create(req, res) {
     if (!req.body.notes) req.body.notes = undefined;
     if (req.file) {
       // Assuming you're storing the filepath in the database
+
       req.body.avatar = req.file.path;
     }
 
